@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CourseContext from "./context/CourseContext";
@@ -6,11 +5,11 @@ import Navbar from "./component/Navbar";
 import Home from "./component/Home";
 import AllCourses from "./component/AllCourses";
 import About from "./component/About";
-
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <CourseContext>
+     <CourseContext  >
       <Router>
         <Navbar />
         <ToastContainer />
