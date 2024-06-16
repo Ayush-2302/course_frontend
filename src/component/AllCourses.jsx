@@ -52,13 +52,19 @@ const AllCourses = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container full_height ">
       <div className="d-flex justify-content-center">
-        <div className={`w-50 p-4 position-absolute z-3 bg-secondary mt-4 ${model ? "visually-hidden" : ""}`}>
+        <div
+          className={`w-50 p-4 position-absolute z-3 bg-secondary mt-4 ${
+            model ? "visually-hidden" : ""
+          }`}
+        >
           <h1 className="text-center">Edit Course</h1>
           <Form className="mt-4" onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="etitle" hidden>Title</Label>
+              <Label for="etitle" hidden>
+                Title
+              </Label>
               <Input
                 id="etitle"
                 name="etitle"
@@ -70,7 +76,9 @@ const AllCourses = () => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="edescription" hidden>Description</Label>
+              <Label for="edescription" hidden>
+                Description
+              </Label>
               <Input
                 id="edescription"
                 name="edescription"

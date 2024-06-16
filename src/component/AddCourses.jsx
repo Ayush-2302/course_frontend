@@ -33,11 +33,11 @@ const AddCourses = () => {
   };
 
   return (
-    <div className=" py-5">
-      <Container>
-        <Row className="justify-content-center">
+    <div className="full_height py-4  my-5 ">
+      <Container className=" d-flex justify-content-center align-items-center">
+        <Row className="justify-content-center w-100">
           <Col md={8} lg={6}>
-            <div className="text-center mb-4">
+            <div className="text-center mb-4 pb-5">
               <FcHome size="4em" />
               <h1 className="display-4">Add New Course</h1>
             </div>
@@ -59,7 +59,7 @@ const AddCourses = () => {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="description">CouCourserse Description</Label>
+                <Label for="description">Course Description</Label>
                 <Input
                   id="description"
                   name="description"

@@ -14,11 +14,12 @@ function App() {
       <Router>
         <Navbar />
         <ToastContainer />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/course" element={<AllCourses />} />
-          <Route exact path="/about" element={<About />} />
-        </Routes>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/course" element={<AllCourses />} />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
+        <Footer/>
       </Router>
     </CourseContext>
   );

@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 function About() {
   return (
-    <Container className="my-5">
+    <Container className="my-5 ">
       <Row className="justify-content-center">
         <Col md={8}>
           <Card>
