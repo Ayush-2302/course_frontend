@@ -1,2 +1,2 @@
-const base_url="https://course1212.netlify.app/api";
+const base_url="https://course-backend-dun.vercel.app/api";
 export default base_url;
