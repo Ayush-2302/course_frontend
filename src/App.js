@@ -6,10 +6,11 @@ import Home from "./component/Home";
 import AllCourses from "./component/AllCourses";
 import About from "./component/About";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./component/Footer";
 
 function App() {
   return (
-     <CourseContext  >
+    <CourseContext>
       <Router>
         <Navbar />
         <ToastContainer />

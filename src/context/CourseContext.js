@@ -11,17 +11,22 @@ const CourseContext = ({ children }) => {
     try {
       const response = await axios.get(`${base_url}/findallcourse`);
       setCourse(response.data);
-      toast.success("courses fetched");
-      // console.log(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
   const addCourse = async (data) => {
-    const response = await axios.post(`${base_url}/addcourse`, data);
-    console.log("success");
-    // console.log(response);
+    try {
+      const response = await axios.post(`${base_url}/addcourse`, data);
+      console.log("success");
+      toast.success("Course added successfully");
+      return response;
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to add course");
+    }
   };
 
   const updateCourse = async (id, courses) => {
@@ -45,7 +50,7 @@ const CourseContext = ({ children }) => {
         }
       }
       setCourse(newCourses);
-      console.log(response.data,"response data");
+      console.log(response.data, "response data");
     } catch (error) {
       console.log(error.message);
     }

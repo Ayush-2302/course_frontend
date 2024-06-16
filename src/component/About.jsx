@@ -23,19 +23,26 @@ function About() {
                 technologies:
                 <ul>
                   <li>
-                    React: A popular JavaScript library for building user
-                    interfaces, allowing for dynamic and responsive frontend
-                    development.
+                    React: A powerful JavaScript library for building
+                    interactive and dynamic user interfaces, widely used for
+                    single-page applications and frontend development.
                   </li>
                   <li>
-                    Bootstrap: A front-end framework for designing responsive
-                    and visually appealing web pages.
+                    Bootstrap: A sleek, mobile-first front-end framework for
+                    developing responsive and modern web projects with ease,
+                    offering a rich set of UI components and utilities.
                   </li>
                   <li>
-                    Spring Boot: Provides a robust framework for building and
-                    deploying Java-based applications with ease.
+                    Spring Boot: A popular Java-based framework that simplifies
+                    the development of robust, production-grade, and easily
+                    deployable web applications, providing features like
+                    auto-configuration and rapid development.
                   </li>
-                  <li>MySql: </li>
+                  <li>
+                    MySQL: An open-source relational database management system
+                    known for its reliability, scalability, and performance,
+                    widely used for storing and managing structured data.
+                  </li>
                 </ul>
                 <h5>Why choose our project ? </h5>
                 <ul>

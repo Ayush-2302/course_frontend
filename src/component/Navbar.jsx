@@ -1,31 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar as BootstrapNavbar, Nav, NavItem } from "reactstrap";
 
 const Navbar = () => {
   return (
-    <div className="  py-3 px-5  bg-body-tertiary">
-      <div className=" gap-4">
-        <Link
-          className=" text-black text px-2 text-decoration-none   rounded-1"
-          to="/"
-        >
-          {" "}
-          Home
-        </Link>
-        <Link
-          className=" text-black text px-2 text-decoration-none   rounded-1"
-          to="/course"
-        >
-          Blogs
-        </Link>
-        <Link
-          className=" text-black text px-2 text-decoration-none   rounded-1"
-          to="/about"
-        >
-          About
-        </Link>
-      </div>
-    </div>
+    <BootstrapNavbar light expand="md" className="px-5 bg-dark sticky-top  ">
+      <Link className="navbar-brand fs-5 text-white" to="/">
+        <strong>MyWebsite</strong>
+      </Link>
+      <Nav className="ml-auto fs-5 " navbar>
+        <NavItem>
+          <Link className="nav-link text-white" to="/">
+            Home
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link className="nav-link text-white" to="/course">
+            Courses
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link className="nav-link text-white" to="/about">
+            About
+          </Link>
+        </NavItem>
+      </Nav>
+    </BootstrapNavbar>
   );
 };
 
