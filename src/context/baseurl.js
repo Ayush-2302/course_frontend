@@ -1,2 +1,2 @@
-const base_url="http://localhost:8080/api";
+const base_url="https://course-backend-dun.vercel.app/api";
 export default base_url;
