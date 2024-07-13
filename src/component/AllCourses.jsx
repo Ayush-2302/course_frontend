@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import CreContext from "../context/creContext";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { toast } from "react-toastify";
+import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader } from "reactstrap";
 import Cards from "../layout/Cards";
 
 const AllCourses = () => {
@@ -13,34 +12,30 @@ const AllCourses = () => {
     edescription: "",
   });
 
-  const [model, setModel] = useState(true);
+  const [modal, setModal] = useState(false);
 
-  const handleModel = (currentCourse) => {
+  const handleModal = (currentCourse) => {
     setCourses({
       id: currentCourse.id,
       etitle: currentCourse.title,
       edescription: currentCourse.description,
     });
-    setModel(false);
+    setModal(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const updatedCourse = await updateCourse(courses.id, {
-        title: courses.etitle,
-        description: courses.edescription,
-      });
-      toast.success("Course updated successfully");
-      setModel(true);
-      setCourses({
-        id: "",
-        etitle: "",
-        edescription: "",
-      });
-    } catch (error) {
-      toast.error("Failed to update course");
-    }
+
+    const updatedCourse = await updateCourse(courses.id, {
+      title: courses.etitle,
+      description: courses.edescription,
+    });
+    setModal(false);
+    setCourses({
+      id: "",
+      etitle: "",
+      edescription: "",
+    });
   };
 
   const handleChange = (e) => {
@@ -52,19 +47,13 @@ const AllCourses = () => {
   }, []);
 
   return (
-    <div className="container full_height ">
-      <div className="d-flex justify-content-center">
-        <div
-          className={`w-50 p-4 position-absolute z-3 bg-secondary mt-4 ${
-            model ? "visually-hidden" : ""
-          }`}
-        >
-          <h1 className="text-center">Edit Course</h1>
-          <Form className="mt-4" onSubmit={handleSubmit}>
+    <div className="container full_height">
+      <Modal isOpen={modal} toggle={() => setModal(!modal)}>
+        <ModalHeader toggle={() => setModal(!modal)} className="text-black">Edit Course</ModalHeader>
+        <ModalBody>
+          <Form onSubmit={handleSubmit}>
             <FormGroup>
-              <Label for="etitle" hidden>
-                Title
-              </Label>
+              <Label for="etitle">Title</Label>
               <Input
                 id="etitle"
                 name="etitle"
@@ -76,9 +65,7 @@ const AllCourses = () => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="edescription" hidden>
-                Description
-              </Label>
+              <Label for="edescription">Description</Label>
               <Input
                 id="edescription"
                 name="edescription"
@@ -89,11 +76,11 @@ const AllCourses = () => {
                 onChange={handleChange}
               />
             </FormGroup>
-            <Button color="primary">Update</Button>
+            <Button color="primary" type="submit">Update</Button>
             <Button
               color="danger mx-2"
               onClick={() => {
-                setModel(true);
+                setModal(false);
                 setCourses({
                   id: "",
                   etitle: "",
@@ -101,25 +88,23 @@ const AllCourses = () => {
                 });
               }}
             >
-              Cancle
+              Cancel
             </Button>
           </Form>
-        </div>
-      </div>
+        </ModalBody>
+      </Modal>
 
-      <h1 className="mt-4">All Course</h1>
-      <div className="mt-4">
-        <div className="row gap-4">
-          {course.length > 0 ? (
-            course.map((ele, index) => (
-              <div key={ele.id} className="col">
-                <Cards course={ele} handleModel={handleModel} />
-              </div>
-            ))
-          ) : (
-            <p>No courses available</p>
-          )}
-        </div>
+      <h1 className="mt-4">All Courses</h1>
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+        {course.length > 0 ? (
+          course.map((ele) => (
+            <div key={ele.id} className="col">
+              <Cards course={ele} handleModel={handleModal} />
+            </div>
+          ))
+        ) : (
+          <p>No courses available</p>
+        )}
       </div>
     </div>
   );

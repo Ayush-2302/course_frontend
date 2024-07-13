@@ -14,7 +14,7 @@ const Cards = ({ course, handleModel }) => {
 
   return (
     <div className="my-3">
-      <Card style={{ width: "24rem", height: "24rem" }}>
+      <Card style={{ width: "auto", height: "24rem" }}>
         <img
           alt="Course"
           src="https://picsum.photos/seed/programmer/300/200"

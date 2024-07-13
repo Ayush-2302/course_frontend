@@ -1,2 +1,2 @@
-const base_url="https://course1212.netlify.app/api";
+const base_url="http://localhost:8080/api";
 export default base_url;
